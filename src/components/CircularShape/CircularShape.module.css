@@ -1,0 +1,93 @@
+.wrapper {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  margin: 10px;
+}
+.wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 10px);
+  aspect-ratio: 1/1;
+  background: var(--bg);
+  border-radius: 50%;
+  z-index: -2;
+}
+
+.orbit ul {
+  display: grid;
+  place-items: center;
+  width: var(--size);
+  height: var(--size);
+  position: relative;
+  list-style: none;
+
+  transform-origin: center;
+  animation: orbit var(--speed) linear infinite;
+}
+
+.orbit li {
+  position: absolute;
+  width: 5rem;
+  aspect-ratio: 1/1;
+  border-radius: 30px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+}
+.orbit li img {
+  max-width: 70px;
+}
+.img {
+  max-width: 30px;
+}
+.orbit li > * {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border-radius: inherit;
+  position: absolute;
+}
+
+.imageContainer,
+.centerImage {
+  display: grid;
+  place-items: center;
+  border-radius: inherit;
+  position: absolute;
+  background: var(--primaryColor);
+  box-shadow: 0 4px 10px var(--shadowColor), 0 8px 16px var(--shadowColor),
+    0 16px 24px var(--shadowColor);
+}
+.center-image {
+  width: 6.5rem;
+  height: 6.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  padding: 10px;
+  background: var(--primaryColor);
+  box-shadow: 0 20px 20px var(--shadowColor), 0 8px 30px var(--shadowColor),
+    0 16px 24px var(--shadowColor);
+  border-radius: 30px;
+}
+
+.center-image img {
+  width: 4rem;
+  object-fit: cover;
+  object-position: center;
+}
